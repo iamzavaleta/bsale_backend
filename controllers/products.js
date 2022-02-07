@@ -8,7 +8,17 @@ const getProductos = (req, res = response)=>{
 
     if(!isNaN(limit) && !isNaN(page)){
         const offset = (Math.abs(page) - 1) * Math.abs(limit);
-        dbConnection.query(`SELECT * FROM product limit ${limit} offset ${offset}`,(err, rows, fields)=>{
+        dbConnection.query(
+            /*`SELECT * FROM product limit ${limit} offset ${offset}`*/
+            `SELECT 	p.id, 
+            p.name, 
+            p.url_image, 
+            p.price, 
+            p.discount, 
+            c.name as category 
+            FROM product p join category c ON p.category=c.id order by p.id
+            LIMIT ${limit}
+            OFFSET ${offset};`,(err, rows, fields)=>{
             if(!err){
                 res.json(rows);
             }else{
