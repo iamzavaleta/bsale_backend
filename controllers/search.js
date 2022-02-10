@@ -22,6 +22,8 @@ const getSearch = (req, res = response) =>{
             }
         })
 }
+
+
 module.exports = {
     getSearch
 }

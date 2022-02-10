@@ -21,7 +21,7 @@ app.use(productsPath, require('./routes/products'));
 app.use(categoriesPath, require('./routes/categories'));
 app.use(searchPath, require('./routes/search'));
 
-//Error routes
+// Error routes
 app.use('/*',(req,res)=>{res.status(404).json({msg: 'routes error'})});
 
 // Starting the server

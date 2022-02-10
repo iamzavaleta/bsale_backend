@@ -1,6 +1,7 @@
 
 const mysql = require('mysql2');
 
+//Configuracion BD
 const dbConnection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,

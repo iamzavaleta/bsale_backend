@@ -76,8 +76,10 @@ const getProductByCategory = (req,res = response)=>{
     }
 }
 
+//Exportacion de rutas
 module.exports = {
     getProductos,
     getProductbyId,
     getProductByCategory
 }
+

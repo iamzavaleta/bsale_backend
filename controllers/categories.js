@@ -2,6 +2,8 @@ const {request, response} = require('express');
 
 const dbConnection = require('../database/config');
 
+
+//Controlador categoria
 const getCategories = (req, res = response)=>{
     dbConnection.query('SELECT * FROM category',(err, rows, fields)=>{
         if(!err){
