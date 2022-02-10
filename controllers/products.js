@@ -55,7 +55,14 @@ const getProductByCategory = (req,res = response)=>{
 
     if(!isNaN(id)){
         dbConnection.query(`
-        SELECT * FROM product WHERE category = ${id}`,(err, rows, fields)=>{
+        SELECT 	p.id, 
+            p.name, 
+            p.url_image, 
+            p.price, 
+            p.discount, 
+            c.name as category 
+            FROM product p join category c ON p.category=c.id 
+            WHERE p.category = ${id}`,(err, rows, fields)=>{
             if(!err){
                 res.json(rows);
             }else{
